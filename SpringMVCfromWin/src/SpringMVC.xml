@@ -8,11 +8,19 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
-	<mvc:annotation-driven></mvc:annotation-driven>
-	<context:component-scan base-package="xyz.phillipjie.servlet"></context:component-scan>
+	<context:component-scan base-package="xyz.phillipjie.servlet,xyz.phillipradexu.converter，xyz.phillipjie.entity"></context:component-scan>
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="suffix" value=".jsp"></property>
 		<property name="prefix" value="/views/"></property>
 	</bean>
-
+	<bean id="stringToStudent" class="xyz.phillipradexu.converter.StringToStudent"></bean>
+	<!-- 格式化的BEAN -->
+	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="converters">
+			<array>
+				<ref bean="stringToStudent"/>
+			</array>
+		</property>
+	</bean>
+	<mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
 </beans>

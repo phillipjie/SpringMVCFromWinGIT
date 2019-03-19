@@ -2,10 +2,19 @@ package xyz.phillipjie.entity;
 
 import java.util.Date;
 
+import javax.validation.constraints.Past;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
+
 public class Student {
+	@NumberFormat(pattern="###,#")
 	private int id;
 	private String name;
+	@Past
+	@DateTimeFormat(pattern="yyyy/MM/dd")
 	private Date birthday;
+	
 	public int getId() {
 		return id;
 	}

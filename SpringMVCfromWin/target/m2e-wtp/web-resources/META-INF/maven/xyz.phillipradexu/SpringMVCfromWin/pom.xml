@@ -20,7 +20,33 @@
     <artifactId>spring-webmvc</artifactId>
     <version>4.3.20.RELEASE</version>
 </dependency>
-    
+      <!-- 使用jstl所需要的standard -->
+<dependency>
+    <groupId>taglibs</groupId>
+    <artifactId>standard</artifactId>
+    <version>1.1.2</version>
+</dependency> 
+<!-- jstl -->
+<dependency>
+    <groupId>javax.servlet</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+<!-- 校验库 -->
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-validator</artifactId>
+    <version>6.0.13.Final</version>
+</dependency>
+<!-- 校验库 -->
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-validator-annotation-processor</artifactId>
+    <version>6.0.13.Final</version>
+</dependency>
+
+
+
   </dependencies>
   <build>
     <finalName>SpringMVCfromWin</finalName>
