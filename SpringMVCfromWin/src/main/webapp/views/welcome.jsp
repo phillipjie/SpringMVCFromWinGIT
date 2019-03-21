@@ -11,6 +11,7 @@
 <c:forEach items="${requestScope.errors}" var="error">
  ${error.getDefaultMessage()},
 </c:forEach>
-<h1>欢迎回来！</h1>
+<h1>欢迎回来！</h1><br/>
+${requestScope.err}
 </body>
 </html>

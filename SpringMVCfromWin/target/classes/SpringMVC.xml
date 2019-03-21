@@ -17,11 +17,21 @@
 	<!-- 格式化的BEAN -->
 	<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
 		<property name="converters">
-			<array>
+			<set>
 				<ref bean="stringToStudent"/>
-			</array>
+			</set>
 		</property>
 	</bean>
+	<!-- 将自定义的拦截其配知道ioc中 -->
+	<mvc:interceptors>
+		
+		<mvc:interceptor>
+		<!-- 基于ant风格的path，mapping是拦截的，exclude是不拦截的，出去ex的其他全部拦截 -->
+		<mvc:mapping path="/**"/>
+		<mvc:exclude-mapping path="/welcome"/>
+		<bean class="xyz.phillipradexu.interceptor.MyInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 	<!-- multipartresolver的bean用于上传文件 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="10240000"></property>

@@ -19,6 +19,7 @@ id:<input type="text" name="id"></input>
 上传文件<input type="file" name="file"></input>
 文件描述<input type="text" name="desc"></input>
 <input type="submit" name="提交"></input>
-</form>
+</form><br/>
+错误<a href="my/testexcpt">welcome</a>
 </body>
 </html>
